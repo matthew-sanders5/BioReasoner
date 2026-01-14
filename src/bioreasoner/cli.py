@@ -71,13 +71,12 @@ def _getenv(name: str, default: str = "") -> str:
 def _build_llm_client(provider: str) -> Any:
     """
     Provider policy (public release safe):
-    - openai: optional, requires OPENAI_API_KEY and openai client implementation present
-    - ollama: optional, requires BIOREASONER_OLLAMA_BASE_URL and ollama client implementation present
+    - openai: optional, requires OPENAI_API_KEY and openai client module
+    - ollama: optional, requires ollama client module and local ollama running
     """
     provider = provider.strip().lower()
 
     if provider == "ollama":
-        # Optional dependency; only import when used.
         try:
             from .ollama_llm_client import OllamaLLMClient  # type: ignore
         except Exception as e:
@@ -88,24 +87,17 @@ def _build_llm_client(provider: str) -> Any:
         return OllamaLLMClient()
 
     if provider == "openai":
-        # OpenAI support is optional. We do NOT ship private/local clients.
-        # If you later add a public openai client (e.g., openai_llm_client.py), wire it here.
         try:
             from .openai_llm_client import OpenAILLMClient  # type: ignore
         except Exception as e:
             raise RuntimeError(
-                "OpenAI provider requested but OpenAI client is not available in this public release. "
-                "If you want OpenAI support, add src/bioreasoner/openai_llm_client.py (public-safe) "
-                "and set OPENAI_API_KEY."
+                "OpenAI provider requested but OpenAI client is not available. "
+                "Ensure src/bioreasoner/openai_llm_client.py exists."
             ) from e
-
-        # Enforce env var presence (no secrets committed).
-        if not _getenv("OPENAI_API_KEY"):
-            raise RuntimeError("OPENAI_API_KEY is not set. Export it or set it in your local .env.")
+        # OpenAILLMClient enforces OPENAI_API_KEY at call time.
         return OpenAILLMClient()
 
     raise RuntimeError(f"Unknown provider '{provider}'. Use BIOREASONER_MODEL_PROVIDER=openai|ollama.")
-
 
 # -------------------------
 # CLI commands
