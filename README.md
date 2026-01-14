@@ -71,7 +71,7 @@ bioreasoner eval-llm --scenario scenarios/wnt/lrp6_basic.yaml --out outputs/eval
 
 ### Batch evaluation
 ```bash
-bioreasoner batch-eval --suite examples/tiny_suite --outdir outputs/batch_run --replicate 1
+bioreasoner batch-eval --suite scenarios/tiny_suite --outdir outputs/batch_run --replicate 1
 ```
 
 ### Analyze results
@@ -102,10 +102,26 @@ bioreasoner aggregate-replicates --root outputs/suite --out outputs/aggregate.js
 
 ---
 
-## Examples
+## Scenarios
 
-- `examples/` contains small scenarios for sanity checks.
 - `scenarios/` contains curated biological signaling scenarios.
+
+---
+
+## Testing
+
+Basic correctness tests are included.
+
+To run the test suite locally:
+
+```bash
+pip install -e ".[dev]"
+pytest -q
+```
+
+These tests validate:
+- Core symbolic engine behavior
+- Scenario parsing and consistency
 
 ---
 
