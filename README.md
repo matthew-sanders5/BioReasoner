@@ -108,6 +108,15 @@ Aggregate replicates:
 bioreasoner aggregate-replicates --root outputs/suite --out outputs/aggregate.json
 ```
 
+### Reproduce (offline)
+
+```bash
+pip install -e ".[dev]"
+bash scripts/reproduce_offline.sh
+```
+
+This creates `outputs/repro_offline/summary.json` and `outputs/repro_offline/aggregate.json` locally.
+
 ---
 
 ## Scenarios
