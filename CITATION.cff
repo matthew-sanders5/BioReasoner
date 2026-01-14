@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use BioReasoner in your work, please cite it using the metadata below."
+title: "BioReasoner"
+type: software
+authors:
+  - family-names: "Sanders"
+    given-names: "Matthew T."
+repository-code: "https://github.com/matthew-sanders5/bioreasoner"
+url: "https://github.com/matthew-sanders5/bioreasoner"
+license: "Apache-2.0"
+version: "0.1.0"
+date-released: "2026-01-13"
+keywords:
+  - biology
+  - causal inference
+  - symbolic reasoning
+  - LLM evaluation
+  - systems biology
+  - rule-based
+abstract: >
+  BioReasoner is a deterministic, symbolic biological causal inference engine with an optional
+  evaluation harness for comparing language model outputs to engine-derived ground truth facts.
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Sanders"
+      given-names: "Matthew T."
+  title: "BioReasoner: Deterministic symbolic causal inference for biological signaling scenarios with optional LLM evaluation"
+  year: 2026
+  version: "0.1.0"
+  url: "https://github.com/matthew-sanders5/bioreasoner"
