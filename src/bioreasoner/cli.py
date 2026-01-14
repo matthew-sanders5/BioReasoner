@@ -259,16 +259,41 @@ def cmd_batch_eval(args: argparse.Namespace) -> int:
 def _extract_counts(obj: Dict[str, Any]) -> Tuple[int, int, int]:
     """
     Best-effort extraction of TP/FP/FN counts from eval JSON.
-    Your eval_result likely contains these already; we handle a few common shapes.
+
+    Supports common shapes:
+    - numeric counts: {"tp": 12, "fp": 3, "fn": 5}
+    - lists of facts: {"tp": [...], "fp": [...], "fn": [...]}
+    - nested metrics: {"metrics": {"tp": ..., "fp": ..., "fn": ...}}
     """
-    # direct
+
+    def _coerce(x: Any) -> int:
+        if x is None:
+            return 0
+        if isinstance(x, (int, float)):
+            return int(x)
+        if isinstance(x, list):
+            return len(x)
+        if isinstance(x, tuple):
+            return len(x)
+        if isinstance(x, dict):
+            # Sometimes stored as {"count": N}
+            if "count" in x and isinstance(x["count"], (int, float)):
+                return int(x["count"])
+            return 0
+        # string numerics
+        try:
+            return int(x)
+        except Exception:
+            return 0
+
+    # direct keys
     for keyset in [
         ("tp", "fp", "fn"),
         ("TP", "FP", "FN"),
         ("true_positives", "false_positives", "false_negatives"),
     ]:
         if all(k in obj for k in keyset):
-            return int(obj[keyset[0]]), int(obj[keyset[1]]), int(obj[keyset[2]])
+            return _coerce(obj[keyset[0]]), _coerce(obj[keyset[1]]), _coerce(obj[keyset[2]])
 
     # nested metrics
     if "metrics" in obj and isinstance(obj["metrics"], dict):
@@ -279,11 +304,9 @@ def _extract_counts(obj: Dict[str, Any]) -> Tuple[int, int, int]:
             ("true_positives", "false_positives", "false_negatives"),
         ]:
             if all(k in m for k in keyset):
-                return int(m[keyset[0]]), int(m[keyset[1]]), int(m[keyset[2]])
+                return _coerce(m[keyset[0]]), _coerce(m[keyset[1]]), _coerce(m[keyset[2]])
 
-    # fallback: none
     return 0, 0, 0
-
 
 def _f1(tp: int, fp: int, fn: int) -> float:
     denom = (2 * tp + fp + fn)
