@@ -69,6 +69,14 @@ export BIOREASONER_MODEL_NAME="llama3.1"
 bioreasoner eval-llm --scenario scenarios/wnt/lrp6_basic.yaml --out outputs/eval_ollama.json
 ```
 
+### Evaluate offline (no paid services, no Ollama)
+```bash
+export BIOREASONER_MODEL_PROVIDER="stub"
+export BIOREASONER_MODEL_NAME="stub"
+
+bioreasoner eval-llm --scenario scenarios/wnt/wnt_demo.yaml --out outputs/eval_stub.json
+```
+
 ### Batch evaluation
 ```bash
 bioreasoner batch-eval --suite scenarios/tiny_suite --outdir outputs/batch_run --replicate 1
