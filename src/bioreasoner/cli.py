@@ -97,6 +97,11 @@ def _build_llm_client(provider: str) -> Any:
         # OpenAILLMClient enforces OPENAI_API_KEY at call time.
         return OpenAILLMClient()
 
+    if provider == "stub":
+        from .llm_client import StubLLMClient
+        # Deterministic empty prediction set; useful for offline reproducibility.
+        return StubLLMClient(fixed_response='{"facts": []}')
+
     raise RuntimeError(f"Unknown provider '{provider}'. Use BIOREASONER_MODEL_PROVIDER=openai|ollama.")
 
 # -------------------------
