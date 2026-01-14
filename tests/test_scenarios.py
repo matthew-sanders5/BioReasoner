@@ -20,11 +20,11 @@ def make_engine():
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAMPLES = ROOT / "examples"
+SCENARIOS = ROOT / "scenarios"
 
 def test_wnt_demo_scenario_behaves_as_expected():
     engine = make_engine()
-    scenario = load_scenario(EXAMPLES / "wnt_demo.yaml")
+    scenario = load_scenario(SCENARIOS / "wnt_demo.yaml")
 
     result = engine.run(scenario.initial_facts)
 
@@ -49,7 +49,7 @@ def test_wnt_demo_scenario_behaves_as_expected():
 
 def test_no_wnt_scenario_defaults_to_destruction_complex_high_and_beta_cat_down():
     engine = make_engine()
-    scenario = load_scenario(EXAMPLES / "no_wnt_baseline.yaml")
+    scenario = load_scenario(SCENARIOS / "no_wnt_baseline.yaml")
 
     result = engine.run(scenario.initial_facts)
 
@@ -70,7 +70,7 @@ def test_no_wnt_scenario_defaults_to_destruction_complex_high_and_beta_cat_down(
 
 def test_mut_lrp6_scenario_prevents_activation():
     engine = make_engine()
-    scenario = load_scenario(EXAMPLES / "mut_lrp6_no_activation.yaml")
+    scenario = load_scenario(SCENARIOS / "mut_lrp6_no_activation.yaml")
 
     result = engine.run(scenario.initial_facts)
 
@@ -91,7 +91,7 @@ def test_mut_lrp6_scenario_prevents_activation():
 
 def test_high_destruction_complex_scenario_drives_beta_cat_down():
     engine = make_engine()
-    scenario = load_scenario(EXAMPLES / "destruction_complex_high.yaml")
+    scenario = load_scenario(SCENARIOS / "destruction_complex_high.yaml")
 
     result = engine.run(scenario.initial_facts)
 
@@ -108,7 +108,7 @@ def test_high_destruction_complex_scenario_drives_beta_cat_down():
 
 def test_wnt_with_high_destruction_complex_scenario_flags_dc_conflict():
     engine = make_engine()
-    scenario = load_scenario(EXAMPLES / "wnt_with_high_destruction_complex.yaml")
+    scenario = load_scenario(SCENARIOS / "wnt_with_high_destruction_complex.yaml")
 
     result = engine.run(scenario.initial_facts)
 
