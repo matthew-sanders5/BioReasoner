@@ -1,0 +1,11 @@
+name: constitutively_active_pi3k
+description: >
+  PI3K is forced active in absence of ligand or RTK.
+  Tests if AKT activation and GSK3 inhibition propagate correctly.
+metadata:
+  pathway: PI3K_AKT
+  category: akt_only
+initial_facts:
+  - PI3K__STATE__ACTIVE
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

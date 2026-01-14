@@ -1,0 +1,11 @@
+name: rtk_present_no_wnt_no_growth_factor
+description: >
+  RTK is expressed but ligand is absent; no Wnt receptors are specified.
+  Ensures PI3K/AKT is not hallucinated active.
+metadata:
+  pathway: PI3K_AKT
+  category: ligand_absent
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - RTK__RECEPTOR__PRESENT
+queries: []

@@ -1,0 +1,12 @@
+name: wnt_receptors_present_no_wnt_no_rtks
+description: >
+  Wnt co-receptors (Frizzled, LRP6) are present but no Wnt ligand or growth factor is provided.
+  Tests if β-catenin remains baseline without activation.
+metadata:
+  pathway: WNT
+  category: ligand_absent
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+queries: []

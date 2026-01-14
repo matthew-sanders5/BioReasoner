@@ -1,0 +1,12 @@
+name: wnt_receptors_no_growth_factor
+description: >
+  LRP6 and Frizzled are present, but no RTK or growth factor ligand are specified.
+  This represents a Wnt-receptor-primed but unstimulated state.
+metadata:
+  pathway: WNT
+  notes: Baseline Wnt receptor expression without RTK/PI3K/AKT activation.
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+queries: []

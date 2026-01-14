@@ -1,0 +1,22 @@
+name: akt_with_growth_factor_promotes_survival
+description: >
+  Growth factor ligand activates PI3K and AKT, leading to GSK3 inhibition
+  and reduced apoptotic tendency.
+
+metadata:
+  pathway: PI3K_AKT
+  notes: Simplified RTK → PI3K → AKT survival signaling cascade.
+
+initial_facts:
+  - RTK__RECEPTOR__PRESENT
+  - GROWTH_FACTOR__LIGAND__PRESENT
+
+queries:
+  - PI3K__STATE__ACTIVE
+  - AKT__PHOSPHO_THR308__P
+  - AKT__PHOSPHO_SER473__P
+  - AKT__STATE__ACTIVE
+  - GSK3__STATE__ACTIVE
+  - GSK3__STATE__INACTIVE
+  - APOPTOSIS__TENDENCY__HIGH
+  - APOPTOSIS__TENDENCY__LOW

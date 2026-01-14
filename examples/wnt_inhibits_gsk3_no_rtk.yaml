@@ -1,0 +1,13 @@
+name: wnt_inhibits_gsk3_no_rtk
+description: >
+  Wnt receptor machinery suppresses GSK3 but no RTK/growth factor is present.
+  Tests whether cross-talk is minimal without PI3K/AKT reinforcement.
+metadata:
+  pathway: CROSS_TALK
+  category: cross_talk
+initial_facts:
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - GSK3__STATE__INACTIVE
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

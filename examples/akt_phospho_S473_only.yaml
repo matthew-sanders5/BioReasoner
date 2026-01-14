@@ -1,0 +1,11 @@
+name: akt_phospho_S473_only
+description: >
+  AKT phosphorylation at S473 alone.
+  Used to test engine and LLM behavior on incomplete AKT activation states.
+metadata:
+  pathway: PI3K_AKT
+  category: akt_only
+initial_facts:
+  - AKT__PHOSPHO_SER473__P
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

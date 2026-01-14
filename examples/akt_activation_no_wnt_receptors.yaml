@@ -1,0 +1,12 @@
+name: akt_activation_no_wnt_receptors
+description: >
+  Growth factor ligand activates RTK and downstream PI3K/AKT signaling.
+  Wnt receptors (LRP6/Frizzled) are not specified, focusing on the AKT pathway alone.
+metadata:
+  pathway: PI3K_AKT
+  notes: Pure PI3K/AKT activation without explicit Wnt receptor involvement.
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - GROWTH_FACTOR__LIGAND__PRESENT
+  - RTK__RECEPTOR__PRESENT
+queries: []

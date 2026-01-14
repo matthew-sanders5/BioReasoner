@@ -1,0 +1,13 @@
+name: akt_inactive_despite_rtks
+description: >
+  RTK and growth factor are present but AKT is forced inactive.
+  This tests whether the model incorrectly overrides the forced inactive state.
+metadata:
+  pathway: PI3K_AKT
+  category: mutation
+initial_facts:
+  - GROWTH_FACTOR__LIGAND__PRESENT
+  - RTK__RECEPTOR__PRESENT
+  - AKT__STATE__INACTIVE
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

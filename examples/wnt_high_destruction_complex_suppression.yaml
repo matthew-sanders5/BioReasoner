@@ -1,0 +1,13 @@
+name: wnt_high_destruction_complex_suppression
+description: >
+  High destruction complex activity dominates, preventing β-catenin stabilization
+  even with Wnt receptors present.
+metadata:
+  pathway: WNT
+  category: wnt_only
+initial_facts:
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

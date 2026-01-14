@@ -1,0 +1,21 @@
+name: akt_no_growth_factor_baseline
+description: >
+  RTK receptor is present but growth factor ligand is absent, so PI3K/AKT remain inactive,
+  GSK3 stays active, and apoptotic tendency is high.
+
+metadata:
+  pathway: PI3K_AKT
+  notes: Simplified RTK/PI3K/AKT baseline; schematic only.
+
+initial_facts:
+  - RTK__RECEPTOR__PRESENT
+  - GROWTH_FACTOR__STATE__OFF
+
+queries:
+  - PI3K__STATE__ACTIVE
+  - AKT__STATE__ACTIVE
+  - AKT__STATE__INACTIVE
+  - GSK3__STATE__ACTIVE
+  - GSK3__STATE__INACTIVE
+  - APOPTOSIS__TENDENCY__HIGH
+  - APOPTOSIS__TENDENCY__LOW

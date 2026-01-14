@@ -1,0 +1,13 @@
+name: wnt_full_activation_complex
+description: >
+  Destruction complex low at baseline with Wnt receptor machinery present.
+  Tests whether β-catenin is predicted to rise.
+metadata:
+  pathway: WNT
+  category: wnt_only
+initial_facts:
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - DESTRUCTION_COMPLEX__ACTIVITY__LOW
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

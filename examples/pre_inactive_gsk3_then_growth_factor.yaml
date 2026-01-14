@@ -1,0 +1,14 @@
+name: pre_inactive_gsk3_then_growth_factor
+description: >
+  GSK3 is already inactive at baseline, with β-catenin at baseline,
+  and then a growth factor ligand engages RTK. This tests whether additional
+  PI3K/AKT activation changes β-catenin level or largely maintains the state.
+metadata:
+  pathway: PI3K_AKT
+  notes: Scenario with pre-existing GSK3 inactivation before RTK activation.
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - GSK3__STATE__INACTIVE
+  - GROWTH_FACTOR__LIGAND__PRESENT
+  - RTK__RECEPTOR__PRESENT
+queries: []

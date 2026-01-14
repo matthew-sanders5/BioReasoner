@@ -1,0 +1,13 @@
+name: rtk_drives_gsk3_inactivation_but_high_destruction_complex
+description: >
+  RTK activates PI3K/AKT and suppresses GSK3, but destruction complex is forced high.
+  Tests whether β-catenin stays low despite cross-talk.
+metadata:
+  pathway: CROSS_TALK
+  category: cross_talk
+initial_facts:
+  - GROWTH_FACTOR__LIGAND__PRESENT
+  - RTK__RECEPTOR__PRESENT
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

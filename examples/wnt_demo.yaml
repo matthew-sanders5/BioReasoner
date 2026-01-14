@@ -1,0 +1,19 @@
+name: wnt_lrp6_beta_cat_demo
+description: >
+  Simple demonstration of Wnt binding to LRP6 leading to LRP6 serine
+  phosphorylation and increased beta-catenin.
+
+metadata:
+  cell_line: "generic_STF_like"
+  notes: "Purely generic Wnt/LRP6/β-catenin logic; no proprietary data."
+
+initial_facts:
+  - WNT__LIGAND__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - LRP6__SER_SITES__INTACT
+  - FRIZZLED__PROTEIN__PRESENT
+  - BETA_CAT__LEVEL__BASELINE
+
+queries:
+  - BETA_CAT__LEVEL__UP
+  - BETA_CAT__LEVEL__DOWN

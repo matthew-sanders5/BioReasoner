@@ -1,0 +1,11 @@
+name: gsk3_constitutively_active_mutant
+description: >
+  GSK3 is forced active regardless of upstream cues.
+  β-catenin should be driven down unless overridden by Wnt input.
+metadata:
+  pathway: WNT
+  category: mutation
+initial_facts:
+  - GSK3__STATE__ACTIVE
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

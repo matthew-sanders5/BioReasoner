@@ -1,0 +1,11 @@
+name: rtk_present_no_ligand
+description: >
+  RTK receptor is present but growth factor ligand is absent.
+  This tests whether signaling remains off without ligand.
+metadata:
+  pathway: PI3K_AKT
+  notes: RTK expression alone should not activate PI3K/AKT in this simplified model.
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - RTK__RECEPTOR__PRESENT
+queries: []

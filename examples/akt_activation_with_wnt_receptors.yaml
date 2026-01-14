@@ -1,0 +1,14 @@
+name: akt_activation_with_wnt_receptors
+description: >
+  LRP6 and Frizzled are present together with RTK and growth factor ligand.
+  PI3K/AKT should activate via RTK and inhibit GSK3, lowering destruction complex activity.
+metadata:
+  pathway: WNT_AND_PI3K_AKT
+  notes: Co-expression of Wnt receptors with growth factor-driven PI3K/AKT activation.
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - GROWTH_FACTOR__LIGAND__PRESENT
+  - RTK__RECEPTOR__PRESENT
+queries: []

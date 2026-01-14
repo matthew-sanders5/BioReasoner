@@ -1,0 +1,11 @@
+name: apoptosis_low_no_akt_signal
+description: >
+  Apoptosis tendency is artificially low but no AKT activation is present.
+  Tests whether the model hallucinates AKT-driven survival.
+metadata:
+  pathway: PI3K_AKT
+  category: phenotype
+initial_facts:
+  - APOPTOSIS__TENDENCY__LOW
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

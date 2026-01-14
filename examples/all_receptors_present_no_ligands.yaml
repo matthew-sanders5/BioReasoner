@@ -1,0 +1,13 @@
+name: all_receptors_present_no_ligands
+description: >
+  RTK, LRP6, and Frizzled are present with no ligands.
+  Ensures neither Wnt nor PI3K/AKT activation is hallucinated.
+metadata:
+  pathway: WNT_AND_PI3K_AKT
+  category: ligand_absent
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - RTK__RECEPTOR__PRESENT
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+queries: []

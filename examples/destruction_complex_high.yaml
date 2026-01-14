@@ -1,0 +1,21 @@
+name: high_destruction_complex_beta_cat_down
+description: >
+  Destruction complex is highly active in the absence of Wnt, leading
+  to reduced beta-catenin levels.
+
+metadata:
+  cell_line: "generic_STF_like"
+  notes: >
+    Abstract scenario where DESTRUCTION_COMPLEX__ACTIVITY__HIGH is treated
+    as a dominant driver of beta-catenin downregulation.
+
+initial_facts:
+  - LRP6__PROTEIN__PRESENT
+  - LRP6__SER_SITES__INTACT
+  - FRIZZLED__PROTEIN__PRESENT
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+
+queries:
+  - BETA_CAT__LEVEL__DOWN
+  - BETA_CAT__LEVEL__BASELINE
+  - BETA_CAT__LEVEL__UP

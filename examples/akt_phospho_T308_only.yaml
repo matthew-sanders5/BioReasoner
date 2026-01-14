@@ -1,0 +1,11 @@
+name: akt_phospho_T308_only
+description: >
+  AKT is partially activated only at T308.
+  Tests whether partial phospho state yields active AKT downstream or remains inactive.
+metadata:
+  pathway: PI3K_AKT
+  category: akt_only
+initial_facts:
+  - AKT__PHOSPHO_THR308__P
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

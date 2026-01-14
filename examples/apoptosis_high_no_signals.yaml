@@ -1,0 +1,11 @@
+name: apoptosis_high_no_signals
+description: >
+  High apoptosis tendency with no activation inputs.
+  Tests if the model falsely stabilizes survival pathways.
+metadata:
+  pathway: PI3K_AKT
+  category: phenotype
+initial_facts:
+  - APOPTOSIS__TENDENCY__HIGH
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

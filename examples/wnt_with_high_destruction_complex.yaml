@@ -1,0 +1,25 @@
+name: wnt_with_high_destruction_complex_conflict
+description: >
+  Wnt ligand is present and a high destruction complex activity state
+  is also asserted, leading to an explicit conflict once Wnt lowers
+  the destruction complex via signalosome formation.
+
+metadata:
+  cell_line: "generic_STF_like"
+  notes: >
+    This scenario is intentionally contradictory: we assert
+    DESTRUCTION_COMPLEX__ACTIVITY__HIGH at baseline, then Wnt signaling
+    infers DESTRUCTION_COMPLEX__ACTIVITY__LOW via the signalosome.
+
+initial_facts:
+  - WNT__LIGAND__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - LRP6__SER_SITES__INTACT
+  - FRIZZLED__PROTEIN__PRESENT
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+
+queries:
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+  - DESTRUCTION_COMPLEX__ACTIVITY__LOW
+  - BETA_CAT__LEVEL__UP
+  - BETA_CAT__LEVEL__DOWN

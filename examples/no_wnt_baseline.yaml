@@ -1,0 +1,18 @@
+name: no_wnt_baseline_beta_cat
+description: >
+  LRP6 is present with intact serine sites but Wnt ligand is absent,
+  so LRP6 is not activated and beta-catenin remains at baseline.
+
+metadata:
+  cell_line: "generic_STF_like"
+  notes: "Negative control for Wnt/LRP6/β-catenin activation."
+
+initial_facts:
+  - LRP6__PROTEIN__PRESENT
+  - LRP6__SER_SITES__INTACT
+  - FRIZZLED__PROTEIN__PRESENT
+  - WNT__STATE__OFF
+
+queries:
+  - BETA_CAT__LEVEL__UP
+  - BETA_CAT__LEVEL__BASELINE

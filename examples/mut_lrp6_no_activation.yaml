@@ -1,0 +1,24 @@
+name: mut_lrp6_ser_sites_disrupted
+description: >
+  Wnt ligand is present and LRP6 is present, but a mutation disrupts
+  the serine phosphorylation sites, preventing LRP6 activation and
+  beta-catenin upregulation.
+
+metadata:
+  cell_line: "generic_STF_like"
+  mutation: "LRP6__SER_SITES__MUTATED"
+  notes: >
+    Abstract mutation representation. We simply omit LRP6__SER_SITES__INTACT
+    so the phosphorylation rule cannot fire.
+
+initial_facts:
+  - WNT__LIGAND__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__SER_SITES__MUTATED
+  - BETA_CAT__LEVEL__BASELINE
+
+queries:
+  - BETA_CAT__LEVEL__UP
+  - BETA_CAT__LEVEL__BASELINE
+  - LRP6__SIGNALING__ACTIVE

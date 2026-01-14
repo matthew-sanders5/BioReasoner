@@ -1,0 +1,13 @@
+name: lrp6_inactive_mutant_high_destruction_complex
+description: >
+  LRP6 is present but nonfunctional (simulated by high destruction complex).
+  Wnt receptors cannot stabilize β-catenin.
+metadata:
+  pathway: WNT
+  category: mutation
+initial_facts:
+  - FRIZZLED__PROTEIN__PRESENT
+  - LRP6__PROTEIN__PRESENT
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+  - BETA_CAT__LEVEL__BASELINE
+queries: []

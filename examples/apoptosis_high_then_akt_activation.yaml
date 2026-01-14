@@ -1,0 +1,13 @@
+name: apoptosis_high_then_akt_activation
+description: >
+  Apoptosis tendency starts high. Growth factor ligand and RTK activation
+  are present, which should activate PI3K/AKT and reduce apoptosis tendency.
+metadata:
+  pathway: PI3K_AKT
+  notes: Tests whether the model tracks anti-apoptotic effects of AKT activation.
+initial_facts:
+  - BETA_CAT__LEVEL__BASELINE
+  - APOPTOSIS__TENDENCY__HIGH
+  - GROWTH_FACTOR__LIGAND__PRESENT
+  - RTK__RECEPTOR__PRESENT
+queries: []

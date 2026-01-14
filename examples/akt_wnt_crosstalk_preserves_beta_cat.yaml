@@ -1,0 +1,31 @@
+name: akt_wnt_crosstalk_preserves_beta_cat
+description: >
+  LRP6 and Frizzled are present but Wnt ligand is not specified. Growth factor activates
+  PI3K/AKT, which inactivates GSK3 and contributes to low destruction complex activity.
+  In this simplified scenario, beta-catenin remains at baseline rather than being driven down.
+
+metadata:
+  pathway: WNT_AND_PI3K_AKT
+  notes: Cross-talk scenario where AKT → GSK3 → destruction complex constrains beta-catenin downregulation.
+
+initial_facts:
+  # Wnt machinery present, but no WNT__LIGAND__PRESENT and no WNT__STATE__OFF fact.
+  - LRP6__PROTEIN__PRESENT
+  - FRIZZLED__PROTEIN__PRESENT
+
+  # Baseline beta-catenin level.
+  - BETA_CAT__LEVEL__BASELINE
+
+  # RTK/AKT side: growth factor ON.
+  - RTK__RECEPTOR__PRESENT
+  - GROWTH_FACTOR__LIGAND__PRESENT
+
+queries:
+  - PI3K__STATE__ACTIVE
+  - AKT__STATE__ACTIVE
+  - GSK3__STATE__INACTIVE
+  - DESTRUCTION_COMPLEX__ACTIVITY__HIGH
+  - DESTRUCTION_COMPLEX__ACTIVITY__LOW
+  - BETA_CAT__LEVEL__BASELINE
+  - BETA_CAT__LEVEL__DOWN
+  - BETA_CAT__LEVEL__UP
