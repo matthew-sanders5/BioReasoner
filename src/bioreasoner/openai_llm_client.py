@@ -1,49 +1,51 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Dict, Optional
+from typing import Any
 
-from .util.env import getenv_required
+from .llm_client import LLMClient
 
 
 @dataclass
-class OpenAILLMClient:
+class OpenAILLMClient(LLMClient):
     """
     Public-release OpenAI client.
 
-    - Requires OPENAI_API_KEY in the environment.
-    - Uses the official `openai` Python SDK (optional dependency).
-    - No private endpoints. No secrets committed.
+    - Optional dependency: `openai` (install with: pip install -e ".[openai]")
+    - Requires env var: OPENAI_API_KEY
+    - No hardcoded endpoints, no secrets committed
     """
 
     api_key_env: str = "OPENAI_API_KEY"
+    temperature: float = 0.0
+    max_tokens: int = 800
 
-    def complete(self, prompt: str, model: str, **kwargs: Any) -> str:
-        api_key = getenv_required(self.api_key_env)
+    def query(self, prompt: str, model_name: str) -> str:
+        import os
+
+        api_key = os.getenv(self.api_key_env, "").strip()
+        if not api_key:
+            raise RuntimeError(
+                f"{self.api_key_env} is not set. Export it or set it in your local .env."
+            )
 
         try:
             from openai import OpenAI  # type: ignore
         except Exception as e:
             raise RuntimeError(
-                "OpenAI support requires the optional dependency: pip install -e '.[openai]'"
+                'OpenAI support requires the optional dependency: pip install -e ".[openai]"'
             ) from e
 
         client = OpenAI(api_key=api_key)
 
-        # Default settings: conservative + reproducible-ish.
-        temperature = float(kwargs.get("temperature", 0.0))
-        max_tokens = int(kwargs.get("max_tokens", 800))
-
-        # Chat Completions style via Responses API if available is better long-term,
-        # but Chat Completions remains widely supported. Keep it simple here.
         resp = client.chat.completions.create(
-            model=model,
+            model=model_name,
             messages=[
                 {"role": "system", "content": "You are a careful biological reasoning assistant."},
                 {"role": "user", "content": prompt},
             ],
-            temperature=temperature,
-            max_tokens=max_tokens,
+            temperature=self.temperature,
+            max_tokens=self.max_tokens,
         )
 
         return resp.choices[0].message.content or ""
