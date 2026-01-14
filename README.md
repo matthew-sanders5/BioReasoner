@@ -48,7 +48,7 @@ pip install -e .
 
 ### Run the engine on a scenario
 ```bash
-bioreasoner engine --scenario scenarios/wnt/lrp6_basic.yaml --out outputs/engine.json
+bioreasoner engine --scenario scenarios/lrp6_basic.yaml --out outputs/engine.json
 ```
 
 ### Evaluate an LLM (OpenAI optional)
@@ -57,7 +57,7 @@ export OPENAI_API_KEY="YOUR_KEY"
 export BIOREASONER_MODEL_PROVIDER="openai"
 export BIOREASONER_MODEL_NAME="gpt-4.1-mini"
 
-bioreasoner eval-llm --scenario scenarios/wnt/lrp6_basic.yaml --out outputs/eval_openai.json
+bioreasoner eval-llm --scenario scenarios/lrp6_basic.yaml --out outputs/eval_openai.json
 ```
 
 ### Evaluate an LLM (Ollama optional)
@@ -66,7 +66,7 @@ export BIOREASONER_MODEL_PROVIDER="ollama"
 export BIOREASONER_OLLAMA_BASE_URL="http://localhost:11434"
 export BIOREASONER_MODEL_NAME="llama3.1"
 
-bioreasoner eval-llm --scenario scenarios/wnt/lrp6_basic.yaml --out outputs/eval_ollama.json
+bioreasoner eval-llm --scenario scenarios/lrp6_basic.yaml --out outputs/eval_ollama.json
 ```
 
 ### Evaluate offline (no paid services, no Ollama)
@@ -74,7 +74,7 @@ bioreasoner eval-llm --scenario scenarios/wnt/lrp6_basic.yaml --out outputs/eval
 export BIOREASONER_MODEL_PROVIDER="stub"
 export BIOREASONER_MODEL_NAME="stub"
 
-bioreasoner eval-llm --scenario scenarios/wnt/wnt_demo.yaml --out outputs/eval_stub.json
+bioreasoner eval-llm --scenario scenarios/wnt_demo.yaml --out outputs/eval_stub.json
 ```
 
 ### Batch evaluation
