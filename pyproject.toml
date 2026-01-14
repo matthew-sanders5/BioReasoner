@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bioreasoner"
+version = "0.1.0"
+description = "Deterministic symbolic biological causal inference engine with optional LLM evaluation harness."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Matthew T. Sanders" }
+]
+keywords = ["biology", "causal inference", "symbolic reasoning", "LLM evaluation", "systems biology", "rule-based"]
+
+dependencies = [
+  "pyyaml>=6.0",
+  "pydantic>=2.0",
+  "tqdm>=4.66",
+  "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5",
+]
+
+openai = [
+  "openai>=1.0",
+]
+
+ollama = [
+  "requests>=2.31",
+]
+
+[project.scripts]
+bioreasoner = "bioreasoner.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
